@@ -74,7 +74,83 @@ namespace TP4_SIM_GA.BackEnd
                 }
 
             }
+
+            result.GenerateTable(cantSim);
+            for (int i = 0; i < cantSim; i++)
+            {
+                AddObservedFrecuencyA(result.Serie[i], result);
+                if (i < 14)
+                {
+                    AddObservedFrecuencyB(result.Serie[i], result);
+                }
+            }
+
+            double noventa = cantSim * 0.9;
+            result.noventa = noventa;
+            MessageBox.Show(noventa + " " + result.primeras14);
+            CalcularAcum(result);
+            MessageBox.Show(result.fechaAFijarA + " " + result.fechaAFijarB);
             return result;
         }
+
+        //Por cada observacion del random generado agrega uno a la FO de la fila que corresponde
+        private static void AddObservedFrecuencyA(double nro, Results result)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                if ((nro >= result.TablaA[i].MinValue && nro <= result.TablaA[i].MaxValue) || i == 14)
+                {
+                    result.TablaA[i].ObservedFrecuency++;
+                    break;
+                }   
+            }
+        }
+
+        private static void AddObservedFrecuencyB(double nro, Results result)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                if ((nro >= result.TablaB[i].MinValue && nro <= result.TablaB[i].MaxValue) || i == 14)
+                {
+                    result.TablaB[i].ObservedFrecuency++;
+                    break;
+                }
+            }
+        }
+
+        private static void CalcularAcum( Results result)
+        {
+            double acumA = result.TablaA[0].ObservedFrecuency;
+            double acumB = result.TablaB[0].ObservedFrecuency;
+            bool banA = false;
+            bool banB = false;
+            for (int i = 0; i < 15; i++)
+            {
+                if (i == 0)
+                {
+                    acumA = result.TablaA[i].ObservedFrecuency;
+                    acumB = result.TablaB[i].ObservedFrecuency;
+                }
+                else
+                {
+                    acumA = result.TablaA[i].ObservedFrecuency + result.TablaA[i - 1].Acum;
+                    acumB = result.TablaB[i].ObservedFrecuency + result.TablaB[i - 1].Acum;
+                }
+                result.TablaA[i].Acum = acumA;
+                result.TablaB[i].Acum = acumB;
+
+                if (acumA >= result.noventa && banA == false)
+                {
+                    banA = true;
+                    result.fechaAFijarA = result.TablaA[i].MaxValue;
+                }
+                if (acumB >= result.primeras14 && banB == false)
+                {
+                    banB = true;
+                    result.fechaAFijarB = result.TablaB[i].MaxValue;
+                }
+            }
+        }
+
     }
 }

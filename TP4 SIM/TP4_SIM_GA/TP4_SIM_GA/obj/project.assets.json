@@ -17,14 +17,10 @@
           "Microsoft.NETCore.Platforms": "3.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
@@ -40,14 +36,10 @@
           "System.Numerics.Vectors": "4.5.0"
         },
         "compile": {
-          "lib/net6.0/ScottPlot.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/ScottPlot.dll": {}
         },
         "runtime": {
-          "lib/net6.0/ScottPlot.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/ScottPlot.dll": {}
         }
       },
       "ScottPlot.WinForms/4.1.58": {
@@ -72,9 +64,7 @@
           "Microsoft.Win32.SystemEvents": "4.6.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/System.Drawing.Common.dll": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
@@ -282,23 +272,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Benz\\.nuget\\packages\\": {}
+    "C:\\Users\\usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Benz\\Desktop\\TP4 SIM\\TP4_SIM_GA\\TP4_SIM_GA\\TP4_SIM_GA.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\Documents\\GitHub\\TP4_SIM\\TP4 SIM\\TP4_SIM_GA\\TP4_SIM_GA\\TP4_SIM_GA.csproj",
       "projectName": "TP4_SIM_GA",
-      "projectPath": "C:\\Users\\Benz\\Desktop\\TP4 SIM\\TP4_SIM_GA\\TP4_SIM_GA\\TP4_SIM_GA.csproj",
-      "packagesPath": "C:\\Users\\Benz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Benz\\Desktop\\TP4 SIM\\TP4_SIM_GA\\TP4_SIM_GA\\obj\\",
+      "projectPath": "C:\\Users\\usuario\\Documents\\GitHub\\TP4_SIM\\TP4 SIM\\TP4_SIM_GA\\TP4_SIM_GA\\TP4_SIM_GA.csproj",
+      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\usuario\\Documents\\GitHub\\TP4_SIM\\TP4 SIM\\TP4_SIM_GA\\TP4_SIM_GA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Benz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net6.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -335,8 +325,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -348,7 +337,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

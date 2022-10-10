@@ -13,9 +13,9 @@ namespace TP4_SIM_GA
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {            
-            if(txtSimulaciones.Text.Equals("") || int.Parse(txtSimulaciones.Text) <= 0)
+            if(txtSimulaciones.Text.Equals("") || int.Parse(txtSimulaciones.Text) <= 0 || int.Parse(txtSimulaciones.Text) < 14)
             {
-                MessageBox.Show("ingrese un valor mayor a 0");
+                MessageBox.Show("ingrese un valor mayor a 14");
                 return;
             }
             int simulaciones = int.Parse(txtSimulaciones.Text);
@@ -23,6 +23,8 @@ namespace TP4_SIM_GA
             LoadSerieTable(result);
             LoadTableVectoresEstado(result);
             LoadHistogram(HistogramHelper.GenerateHistogramPng(simulaciones, result));
+            LoadTablasFrecuencias(result);
+            LoadDias(result);
             txtProbabilidad.Text = probabilidad45DiasOMenos(result, simulaciones).ToString();
         }
 
@@ -60,6 +62,28 @@ namespace TP4_SIM_GA
         private void LoadHistogram(string path)
         {
             pictureBoxHistograma.Image = Image.FromFile(path);
+        }
+
+        private void LoadTablasFrecuencias(Results result)
+        {
+            dgvFrecuenciasA.DataSource = result.TablaA.Select(x => new
+            {
+                Intervalo = x.MinValue + " - " + (x.MaxValue + 0.0001),
+                FO = x.ObservedFrecuency,
+                FE = x.ExpectedFrecuency
+            }).ToList();
+            dgvFrecuenciasB.DataSource = result.TablaB.Select(x => new
+            {
+                Intervalo = x.MinValue + " - " + (x.MaxValue + 0.0001),
+                FO = x.ObservedFrecuency,
+                FE = x.ExpectedFrecuency
+            }).ToList();
+        }
+
+        private void LoadDias(Results result)
+        {
+            txtDiasA.Text = result.fechaAFijarA.ToString();
+            txtDiasB.Text = result.fechaAFijarB.ToString();
         }
 
         private double probabilidad45DiasOMenos(Results result, int simul)
