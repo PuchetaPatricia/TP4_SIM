@@ -87,9 +87,7 @@ namespace TP4_SIM_GA.BackEnd
 
             double noventa = cantSim * 0.9;
             result.noventa = noventa;
-            MessageBox.Show(noventa + " " + result.primeras14);
             CalcularAcum(result);
-            MessageBox.Show(result.fechaAFijarA + " " + result.fechaAFijarB);
             return result;
         }
 

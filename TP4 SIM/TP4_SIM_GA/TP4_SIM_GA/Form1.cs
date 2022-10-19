@@ -20,11 +20,13 @@ namespace TP4_SIM_GA
             }
             int simulaciones = int.Parse(txtSimulaciones.Text);
             Results result = GenerateResults.generate(simulaciones);
+
             LoadSerieTable(result);
             LoadTableVectoresEstado(result);
             LoadHistogram(HistogramHelper.GenerateHistogramPng(simulaciones, result));
             LoadTablasFrecuencias(result);
             LoadDias(result);
+
             txtProbabilidad.Text = probabilidad45DiasOMenos(result, simulaciones).ToString();
         }
 
